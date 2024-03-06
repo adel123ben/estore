@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider"
+import NextAuthSessionProvider from "./providers/session-provider";
+import { Toaster, toast } from 'sonner'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +18,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} dark:bg-neutral-900`}>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NextAuthSessionProvider>
+            <Toaster />
+            {children}
+            </NextAuthSessionProvider>
+          </ThemeProvider>
+        </body>
     </html>
   );
 }
