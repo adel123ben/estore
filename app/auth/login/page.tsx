@@ -95,12 +95,12 @@ export default function RegisterPage() {
             </div>
            
             <div>
-              <SubmitButton
+              <Button
                 type="submit"
                 className="flex bg-slate-950 w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
-              </SubmitButton>
+              </Button>
             </div>
           </form>
         </Form>
