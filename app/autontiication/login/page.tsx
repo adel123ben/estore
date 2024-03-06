@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { loginSchema } from "@/lib/validation"
 import { Button } from "@/components/ui/button"
-import { SubmitButton } from "@/hooks/submitButon"
+
 import {
   Form,
   FormControl,
@@ -33,8 +33,7 @@ export default function RegisterPage() {
  
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof loginSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  
     console.log(values)
     await signIn("credentials",{
         email:values.email,

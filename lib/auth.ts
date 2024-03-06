@@ -5,8 +5,8 @@ import type { NextAuthOptions } from "next-auth";
 export const authOptions:NextAuthOptions = {
    secret:process.env.NEXTAUTH_SECRET,
    pages:{
-     signIn:"/auth/login",
-     signOut:"/auth/login"
+     signIn:"/autontiication/login",
+     signOut:"/autontiication/login"
    },
    session:{
         strategy:"jwt",
