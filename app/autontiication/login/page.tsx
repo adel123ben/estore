@@ -19,7 +19,7 @@ import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 
 
-export default function login() {
+export default function Login() {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
