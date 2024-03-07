@@ -1,5 +1,4 @@
 "use client"
- 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -20,7 +19,7 @@ import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 
 
-function Login() {
+export default function login() {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -117,4 +116,4 @@ function Login() {
   )
 }
 
-export default Login;
+
