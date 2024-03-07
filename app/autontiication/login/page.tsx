@@ -1,4 +1,5 @@
 "use client"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -15,11 +16,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useSearchParams } from "next/navigation"
-import { signIn } from "next-auth/react"
+import { signIn } from "next-auth/react";
 
-
-export default function Login() {
+function Login() {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -27,20 +26,20 @@ export default function Login() {
       password: "",
     },
   })
-  const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl")
+
  
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof loginSchema>) {
-  
-    console.log(values)
-    await signIn("credentials",{
-        email:values.email,
-        password:values.password,
-        redirect:true,
-        callbackUrl:callbackUrl ||  "/"
+ 
+  // Define a submit handler.
+ async function onSubmit(values: z.infer<typeof loginSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    await signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      redirect: true,
+      callbackUrl: "/",
     })
-    
+    console.log(values)
   }
   return (
     <>
@@ -104,16 +103,11 @@ export default function Login() {
         </Form>
          
 
-          {/* <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <a href="#" className="font-semibold leading-6 text-slate-900 hover:opacity-75">
-              Start a 14 day free trial
-            </a>
-          </p> */}
+       
         </div>
       </div>
     </>
   )
 }
 
-
+export default Login;
