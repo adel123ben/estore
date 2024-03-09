@@ -4,9 +4,9 @@ import axios from 'axios'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
 
-async function getData(name:string | string[] | undefined) {
+async function getData(query:string | string[] | undefined) {
   
-  const res = await axios.get(`${process.env.API_URL}/product?name=${name ? name : ""}`)
+  const res = await axios.get(`${process.env.API_URL}/product?query=${query ? query : ""}`)
   return res.data
  
 }
@@ -15,14 +15,14 @@ export default async function page({
   params,
   searchParams,
 }: {
-  params: { name: string };
+  params: { query: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const session = await getServerSession(authOptions)
   console.log(session)
-const name=searchParams?.name
-console.log(name)
-const data = await getData(name)
+const query=searchParams?.query
+console.log(query)
+const data = await getData(query)
 
  console.log(data)
 return  <>
