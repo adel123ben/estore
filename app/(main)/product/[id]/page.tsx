@@ -6,8 +6,12 @@ import axios from 'axios'
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import DeletButton from '@/components/component/delet-button';
-import UpdateProductForm from '@/components/manegeProductForm';
-import DeleteButton from '@/components/deleteButton';
+
+
+import UpdateButton from '@/components/component/updateButton';
+import UpdateProductForm from '@/components/component/updateProductForm';
+import DeleteButton from '@/components/component/deleteButton';
+
 
 async function getData(id: string) {
   const res = await axios.get(`${process.env.API_URL}/product/${id}`)
@@ -38,17 +42,27 @@ export default  async function page({
       <img className="mb-4 mt-6 h-72 rounded-md" src={data?.data?.image} alt="" />
        {/* <Input placeholder='Enter the url of the image' /> */}
       </div>
+
      
       
+
+    
+
+    
+
         {/* <Link href={`/product/update/${id}`}>
         <Button className='mt-5'>Edit Product <Pencil className="w-4 h-4 ml-2" /></Button>
       
         </Link> */}
+
         <div className='flex flex-row items-center'>
         <UpdateProductForm data={data?.data} id={id} />
       <DeleteButton id={id} />
         </div>
          
+
+        
+
     </div>
   )
 }
