@@ -18,7 +18,8 @@ export function SearchComponent() {
     const handleClick = () => {
       // Effectuer la recherche avec la valeur actuelle de search
       console.log(search);
-      router.push(`/product?query=${search}`);
+      // router.push(`/product?query=${search}`);
+      window.location.href=`/product?query=${search}`
     };
   
     return (

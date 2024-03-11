@@ -1,4 +1,4 @@
-import { Store } from "lucide-react"
+import { Store, Truck } from "lucide-react"
 import { ModeToggle } from "./ModeToggle"
 import {
     Avatar,
@@ -48,13 +48,16 @@ export default function NavbarItem() {
             </li>
             <li>
               <a className="px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800" href="#">
-                Banner
+              Category
               </a>
             </li>
             <li>
-              <a className="px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800" href="#">
-                Category
-              </a>
+              <Link href="/order">
+              <p className="px-2 py-1 flex flex-row items-center text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800" >
+                Order <Truck size={17} className="ml-1" />
+              </p>
+              </Link>
+            
             </li>
           </ul>
         </div>

@@ -3,10 +3,11 @@ import React from 'react'
 import axios from 'axios'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/auth'
+import OrderparenteComponents from '@/components/orderparenteComponents'
 
-async function getData(query:string | string[] | undefined) {
+async function getData() {
   
-  const res = await axios.get(`${process.env.API_URL}/product?query=${query ? query : ""}`)
+  const res = await axios.get(`${process.env.API_URL}/formulaire`)
   return res.data
  
 }
@@ -22,10 +23,10 @@ export default async function page({
   console.log(session)
 const query=searchParams?.query
 console.log(query)
-const data = await getData(query)
+const data = await getData()
 
  console.log(data)
 return  <>
- <Dashboardcomponets data={data} />
+ <OrderparenteComponents data={data} />
 </>
 }
