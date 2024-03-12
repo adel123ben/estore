@@ -27,14 +27,14 @@ function Ordercomponents({formulaires}:Props) {
   return (
    <>
    <TableRow>
-   <TableCell className="font-medium">e-store</TableCell>
+   <TableCell className="font-medium hidden md:flex">e-store</TableCell>
                   <TableCell>{formulaires.name}</TableCell>
                   <TableCell>{formulaires.phone}</TableCell>
-                  <TableCell className='text-center' >{formulaires.quntity}</TableCell>
+                  <TableCell className='text-center 2xl:text-start' >{formulaires.quntity}</TableCell>
                   <TableCell >{formulaires.wilaya}</TableCell>
                   <TableCell >{formulaires.commune}</TableCell>
                   <TableCell >{formulaires.product.title}</TableCell>
-                  <TableCell >{formulaires.product.price}$</TableCell>
+                  <TableCell >{formulaires.product.price}DA</TableCell>
                   <TableCell>{formulaires.createdAt}</TableCell>
    </TableRow>
                   

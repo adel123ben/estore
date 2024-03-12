@@ -31,7 +31,7 @@ export default function Productcard({products}:Props) {
         <Card>
           <CardContent className="grid gap-2">
             <h3 className="text-lg font-medium mt-2">{products.title}</h3>
-            <p className="text-sm text-gray-500">{products.price}$</p>
+            <p className="text-sm text-gray-500">{products.price}DA</p>
             <div className="flex flex-row items-center space-x-5">
             <p className="text-sm text-gray-500">{products.category.name}</p>
             <p className="text-sm text-gray-500">{products.color.name}</p>
