@@ -79,19 +79,19 @@ export default function AddNewProduct() {
             <label className="text-sm font-medium leading-5" htmlFor="color">
               Color
             </label>
-            <Input value={color} onChange={(e) => setColor(e.target.value)} id="color" placeholder="Enter the color" required />
+            <Input value={color} onChange={(e) => setColor(e.target.value)} id="color" placeholder="Enter the color"  />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <label className="text-sm font-medium leading-5" htmlFor="size">
               Size
             </label>
-            <Input value={size} onChange={(e) => setSize(e.target.value)} id="size" placeholder="Enter the size" required />
+            <Input value={size} onChange={(e) => setSize(e.target.value)} id="size" placeholder="Enter the size"  />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <label className="text-sm font-medium leading-5" htmlFor="category">
               Category
             </label>
-            <Input value={category} onChange={(e) => setCategory(e.target.value)} id="category" placeholder="Enter the category" required />
+            <Input value={category} onChange={(e) => setCategory(e.target.value)} id="category" placeholder="Enter the category"  />
           </div>
           <div className="grid grid-cols-1 gap-1">
             <label className="text-sm font-medium leading-5" htmlFor="images">
@@ -104,7 +104,7 @@ export default function AddNewProduct() {
             <label className="text-sm font-medium leading-5" htmlFor="images">
               Images 2
             </label>
-            <Input value={image2} onChange={(e) => setImage2(e.target.value)} id="images2" multiple required type="text" />
+            <Input value={image2} onChange={(e) => setImage2(e.target.value)} id="images2" multiple  type="text" />
             {/* <div>You can select multiple images by holding down the Ctrl key (Windows) or the Command key (Mac).</div> */}
           </div>
           <div className="grid grid-cols-1 gap-1">
