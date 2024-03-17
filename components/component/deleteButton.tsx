@@ -1,8 +1,20 @@
 "use client";
 import React from 'react'
-import { Button } from '../ui/button'
 import axios from 'axios'
 import { toast } from 'sonner';
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+  } from "@/components/ui/alert-dialog"
+  import { Button } from "@/components/ui/button"
+import { Trash, Trash2 } from "lucide-react"
 
 type Props = {
     id:string
@@ -20,9 +32,25 @@ function DeleteButton({id}:Props) {
     }
     
   return (
-    <div>
-     <Button onClick={handelDlete} variant="destructive" >Delete</Button>
-    </div>
+
+    <AlertDialog>
+    <AlertDialogTrigger asChild>
+      <Button variant="destructive">Delete <Trash size={20} className='ml-2' /></Button>
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        <AlertDialogDescription>
+          This action cannot be undone. This will permanently delete your
+          account and remove your data from our servers.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <Button onClick={handelDlete} variant="destructive" >Delete <Trash2 size={20} className='ml-2' /></Button>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
   )
 }
 

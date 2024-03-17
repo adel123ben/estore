@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Input } from '../ui/input';
 import UpdateButton from './updateButton';
+import { Textarea } from "@/components/ui/textarea"
 
 
 type Props = {
@@ -9,7 +10,13 @@ type Props = {
         id:string,
         title:string,
         price:string,
-        image:string
+        image:string,
+        image2:string,
+        benefit:string,
+        benefit2:string,
+        benefit3:string,
+        benefit4:string,
+        benefit5:string,
     },
     id:string;
 }
@@ -17,6 +24,12 @@ function UpdateProductForm({data,id}:Props) {
     const [title, setTitle] = useState(data?.title);
     const [price, setPrice] = useState(data?.price);
     const [image, setImage] = useState(data?.image);
+    const [image2, setImage2] = useState(data?.image2);
+    const [benefit, setBenefits] = useState(data?.benefit);
+    const [benefit2, setBenefits2] = useState(data?.benefit2);
+    const [benefit3, setBenefits3] = useState(data?.benefit3);
+    const [benefit4, setBenefits4] = useState(data?.benefit4);
+    const [benefit5, setBenefits5] = useState(data?.benefit5);
   return (
     <div>
  <form     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -36,9 +49,15 @@ function UpdateProductForm({data,id}:Props) {
           <label className="mb-2 text-sm font-medium text-gray-700" htmlFor="price">
             image
           </label>
-          <Input  value={image} onChange={(e) => setImage(e.target.value)}  id="image" placeholder={data?.image} />
+          <Input   value={image} onChange={(e) => setImage(e.target.value)}  id="image" placeholder={data?.image} />
         </div>
         <div className="flex flex-col">
+          <label className="mb-2 text-sm font-medium text-gray-700" htmlFor="price">
+            image2
+          </label>
+          <Input  value={image2} onChange={(e) => setImage2(e.target.value)}  id="image" placeholder={data?.image} />
+        </div>
+        {/* <div className="flex flex-col">
           <label className="mb-2 text-sm font-medium text-gray-700" htmlFor="category">
             Category
           </label>
@@ -55,7 +74,7 @@ function UpdateProductForm({data,id}:Props) {
             Color
           </label>
           <Input disabled  id="color" />
-        </div>
+        </div> */}
         {/* <div className="flex items-center">
           <Checkbox id="featured" />
           <label className="ml-2 text-sm font-medium text-gray-700" htmlFor="featured">
@@ -71,7 +90,16 @@ function UpdateProductForm({data,id}:Props) {
           </label>
         </div> */}
        
-      <UpdateButton image={image} title={title} price={price} id={id} />
+       <div className="flex flex-col space-y-6">
+       <Textarea  value={benefit} onChange={(e) => setBenefits(e.target.value)}  id="benefit" placeholder={data?.benefit} />
+       <Textarea  value={benefit2} onChange={(e) => setBenefits2(e.target.value)}  id="benefit" placeholder={data?.benefit2} />
+      <Textarea  value={benefit3} onChange={(e) => setBenefits3(e.target.value)}  id="benefit" placeholder={data?.benefit3} />
+      <Textarea  value={benefit4} onChange={(e) => setBenefits4(e.target.value)}  id="benefit" placeholder={data?.benefit4} />
+      <Textarea  value={benefit5} onChange={(e) => setBenefits5(e.target.value)}  id="benefit" placeholder={data?.benefit5} />
+       </div>
+       <div>
+       <UpdateButton image2={image2} benefit5={benefit5} benefit4={benefit4} benefit3={benefit3} benefit2={benefit2} benefit={benefit} image={image} title={title} price={price} id={id} />
+       </div>
       </form>
     </div>
   )

@@ -38,8 +38,9 @@ export default  async function page({
       
       </div>
 
-      <div className="mb-4">
-      <img className="mb-4 mt-6 h-72 rounded-md" src={data?.data?.image} alt="" />
+      <div className="mb-4 items-center flex flex-col object-contain md:flex-row space-x-10">
+      <img className="mb-4 mt-6 h-72 object-contain  rounded-md" src={data?.data?.image} alt="" />
+      <img className="mb-4 mt-6 h-72 object-contain  rounded-md" src={data?.data?.image2} alt="" />
        {/* <Input placeholder='Enter the url of the image' /> */}
       </div>
 
@@ -57,8 +58,12 @@ export default  async function page({
 
         <div className='flex flex-row items-center'>
         <UpdateProductForm data={data?.data} id={id} />
-      <DeleteButton id={id} />
+    
         </div>
+        <div className='flex mt-10'>
+        <DeleteButton id={id} />
+        </div>
+        
          
 
         

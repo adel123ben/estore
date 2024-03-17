@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import Productcard from "./product-card"
 import { SearchComponent } from "./search-input";
 import { AddNewProduct } from "./add-new-product-button";
+import Link from "next/link";
+import { CircleFadingPlus } from "lucide-react";
 // import { useSession } from "next-auth/react";
 
 // type Props = {
@@ -30,14 +32,21 @@ export function Dashboardcomponets({ data }: Props) {
       </div>
       <div className="mb-4 flex justify-between">
         <SearchComponent   />
-        <AddNewProduct />
+        {/* <AddNewProduct /> */}
+        <Link href='/addnewProduct'>
+        
+        <Button className="bg-neutral-950">
+          <span className="hidden md:flex">Create Product</span> <CircleFadingPlus className="text-white ml-2" />
+        </Button>
+          </Link> 
+        
      
      
       </div>
     {/* ts@ignore
     <div>Welcome, {session.data?.user?.data?.name}</div> */}
 
-    <div className="mt-8">
+    <div className="mt-8 space-y-6 mb-8">
       {Array.isArray(data) && data.map((product: any) => (
         <Productcard  key={product._id} products={product} />
       ))}

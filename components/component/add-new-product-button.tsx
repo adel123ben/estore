@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { useState } from 'react';
 import axios from 'axios';
+import { CardContent, CardFooter, Card } from "@/components/ui/card"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Dialog,
   DialogContent,
@@ -25,6 +27,12 @@ export function AddNewProduct() {
   const [price, setPrice] = useState('');
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
+  const [benefit, setBenefits] = useState('');
+  const [benefit2, setBenefits2] = useState('');
+  const [benefit3, setBenefits3] = useState('');
+  const [benefit4, setBenefits4] = useState('');
+  const [benefit5, setBenefits5] = useState('');
+
  
 
 
@@ -37,7 +45,12 @@ export function AddNewProduct() {
         category,
         price,
         color,
-        size
+        size,
+        benefit,
+        benefit2,
+        benefit3,
+        benefit4,
+        benefit5
       });
       console.log(response.data);
       setCategory('');
@@ -54,62 +67,85 @@ export function AddNewProduct() {
   };
   return (
     <Dialog>
-      <DialogTrigger asChild>
-      <Button size="default" className="ml-4"><ClipboardPlus className="mr-2 h-5 w-5" /> Add New</Button>
-      </DialogTrigger>
-      <DialogContent   className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Add New Product</DialogTitle>
-          <DialogDescription>
-            Make sure everything is filled out properly
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit}>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              name 
-            </Label>
-            <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)}   className="col-span-3" />
+    <DialogTrigger asChild>
+    <Button size="default" className="ml-4"><ClipboardPlus className="mr-2 h-5 w-5" /> Add New</Button>
+    </DialogTrigger>
+    <DialogContent   className="sm:max-w-[425px]">
+    <Card className="w-full max-w-sm mx-auto">
+      <CardContent className="flex flex-col gap-4">
+        <div>New Product</div>
+        <div className="text-sm text-gray-500">Fill in the information below.</div>
+        <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="title">
+              Title
+            </label>
+            <Input id="title" placeholder="Enter the title" required />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label  className="text-right">
-              image
-            </Label>
-            <Input  id="image" value={image} onChange={(e) => setImage(e.target.value)}  className="col-span-3" />
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="price">
+              Price
+            </label>
+            <Input id="price" placeholder="Enter the price" required type="number" />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              size
-            </Label>
-            <Input id="size" value={size} onChange={(e) => setSize(e.target.value)}  className="col-span-3" />
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="color">
+              Color
+            </label>
+            <Input id="color" placeholder="Enter the color" required />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              category
-            </Label>
-            <Input id="category" value={category} onChange={(e) => setCategory(e.target.value)}  className="col-span-3" />
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="size">
+              Size
+            </label>
+            <Input id="size" placeholder="Enter the size" required />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              color
-            </Label>
-            <Input id="color" value={color} onChange={(e) => setColor(e.target.value)} className="col-span-3" />
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="category">
+              Category
+            </label>
+            <Input id="category" placeholder="Enter the category" required />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              price
-            </Label>
-            <Input id="price" value={price} onChange={(e) => setPrice(e.target.value)} className="col-span-3" />
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="images">
+              Images
+            </label>
+            <Input id="images" multiple required type="file" />
+            <div>You can select multiple images by holding down the Ctrl key (Windows) or the Command key (Mac).</div>
+          </div>
+          <div className="grid grid-cols-1 gap-1">
+            <label className="text-sm font-medium leading-5" htmlFor="advantages">
+              Advantages
+            </label>
+            <div className="grid grid-cols-1 gap-4">
+              <div>
+                <Textarea id="advantage1" placeholder="Advantage 1" required />
+              </div>
+              <div>
+                <Textarea id="advantage2" placeholder="Advantage 2" required />
+              </div>
+              <div>
+                <Textarea id="advantage3" placeholder="Advantage 3" required />
+              </div>
+              <div>
+                <Textarea id="advantage4" placeholder="Advantage 4" required />
+              </div>
+              <div>
+                <Textarea id="advantage5" placeholder="Advantage 5" required />
+              </div>
+            </div>
           </div>
         </div>
-        <DialogFooter>
-          <Button  onClick={() => toast.success('Product added successfully')} type="submit">Add Product</Button>
-        </DialogFooter>
-        </form>
-      
-      
-      </DialogContent>
-    </Dialog>
+      </CardContent>
+      <CardFooter>
+        <Button >Save</Button>
+        <Button className="ml-2" >
+          Cancel
+        </Button>
+      </CardFooter>
+    </Card>
+    
+    </DialogContent>
+  </Dialog>
   )
 }
