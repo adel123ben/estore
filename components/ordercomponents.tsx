@@ -1,6 +1,9 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
 import { TableRow, TableCell } from "@/components/ui/table"
+import axios from 'axios';
+import ChekboxItem from './chekboxItem';
+import { cn } from '@/lib/utils';
 
 type Props = {
     formulaires: {
@@ -9,6 +12,7 @@ type Props = {
         createdAt: string,
         phone: number,
         wilaya: string,
+        isMarked: boolean,
         commune: string,
         quntity: number,
         product: {
@@ -19,9 +23,12 @@ type Props = {
 }
 
 function Ordercomponents({ formulaires }: Props) {
+    const [isMarked, setIsChecked] = useState<boolean>(formulaires.isMarked);
     return (
-        <TableRow>
-            <TableCell className="font-medium hidden md:flex">e-store</TableCell>
+        <TableRow className={cn("hover:bg-muted", isMarked && "line-through")}>
+            <TableCell className="font-medium hidden md:flex">
+                <ChekboxItem  formulaires={formulaires}/>
+            </TableCell>
             <TableCell>{formulaires.name}</TableCell>
             <TableCell>{formulaires.phone}</TableCell>
             <TableCell className='text-center 2xl:text-start'>{formulaires.quntity}</TableCell>
