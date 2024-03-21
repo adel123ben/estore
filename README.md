@@ -1,3 +1,5 @@
+![redmeecomerssotre](https://github.com/adel123ben/estore/assets/103518966/f460f3d6-e313-48db-9803-ae78cc3816f6)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
