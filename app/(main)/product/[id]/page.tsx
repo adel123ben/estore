@@ -31,6 +31,11 @@ export default  async function page({
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <div>
+      <div className='flex mb-4'>
+        <DeleteButton id={id} />
+        </div>
+      </div>
       <h1 className="text-2xl font-bold mb-4">{data?.data?.title}</h1>
       <p className="text-sm -mt-4 text-gray-500 mb-6">view the product details here</p>
       <div className='flex flex-col'>
@@ -60,9 +65,7 @@ export default  async function page({
         <UpdateProductForm data={data?.data} id={id} />
     
         </div>
-        <div className='flex mt-10'>
-        <DeleteButton id={id} />
-        </div>
+        
         
          
 

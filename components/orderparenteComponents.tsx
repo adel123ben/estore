@@ -24,7 +24,7 @@ function OrderparenteComponents({data}: Props) {
                   <TableHead >Wilaya</TableHead>
                   <TableHead >commune</TableHead>
                   <TableHead >product</TableHead>
-                  <TableHead >price</TableHead>
+                  <TableHead >Total</TableHead>
                   <TableHead >Order Date</TableHead>
                 </TableRow>
               </TableHeader>

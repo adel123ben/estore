@@ -6,6 +6,9 @@ import Link from "next/link"
 import axios from "axios"
 import { useState } from "react"
 import { toast } from "sonner"
+import { Label } from "@/components/ui/label"
+import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
 
 export default function AddNewProduct() {
     const [title, setTitle] = useState('');

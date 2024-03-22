@@ -35,7 +35,7 @@ function DeleteButton({id}:Props) {
 
     <AlertDialog>
     <AlertDialogTrigger asChild>
-      <Button variant="destructive">Delete <Trash size={20} className='ml-2' /></Button>
+      <Button size="icon" variant="destructive"><Trash size={17} className='' /></Button>
     </AlertDialogTrigger>
     <AlertDialogContent>
       <AlertDialogHeader>

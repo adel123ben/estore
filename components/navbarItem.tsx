@@ -37,9 +37,9 @@ export default function NavbarItem() {
               </Link>
             </li>
             <li>
-              <a className="px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800" href="#">
+              <Link className="px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800" href="/color">
                 Colors
-              </a>
+              </Link>
             </li>
             <li>
               <a className="px-2 py-1 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-800" href="#">
